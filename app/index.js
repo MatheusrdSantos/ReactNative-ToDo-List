@@ -15,7 +15,7 @@ export default class App extends Component {
   constructor(props){
     super(props);
     this.state = {
-      todo: ['create item styles', 'implement interaction with itens', 'sleep']
+      todo: []
     };
   }
   addTask = (task) => {
