@@ -5,11 +5,12 @@ export default class TaskCreator extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <TextInput style={styles.textInput} placeholder="Type here a task"></TextInput>
+        <TextInput ref={input => this._text = input} style={styles.textInput} placeholder="Type here a task"></TextInput>
         <Button
-        onPress={() => {
+        /* onPress={() => {
             Alert.alert('You tapped the button!');
-        }}
+        }} */
+        onPress={()=>this.props.newTask(this._text._lastNativeText)}
         title="add"
         />
       </View>

@@ -14,5 +14,10 @@ export default StyleSheet.create({
         justifyContent: 'space-around',
         alignItems: 'center',
         backgroundColor: '#ffffff',
+    },
+    sectionHeader:{
+        fontWeight: 'bold',
+        fontSize: 20
+        
     }
 });

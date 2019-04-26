@@ -1,8 +1,8 @@
 import { StyleSheet } from 'react-native';
-
+/* TaskCreator styles */
 export default StyleSheet.create({
     textInput: {
-        color: 'white',
+        color: 'black',
         width: '70%'
     },
     container: {

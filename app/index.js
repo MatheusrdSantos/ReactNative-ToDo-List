@@ -10,12 +10,24 @@ import TaskCreator from './components/TaskCreator'
 import TaskList from './components/TaskList'
 import React, {Component} from 'react';
 import {StyleSheet, View} from 'react-native';
+
 export default class App extends Component {
+  constructor(props){
+    super(props);
+    this.state = {
+      todo: ['create item styles', 'implement interaction with itens', 'sleep']
+    };
+  }
+  addTask = (task) => {
+    this.state.todo.push(task)
+    this.setState({todo: this.state.todo})
+    //alert(task)
+  }
   render() {
     return (
         <View style={styles.container}>
-            <TaskCreator></TaskCreator>
-            <TaskList></TaskList>
+            <TaskCreator newTask={this.addTask}></TaskCreator>
+            <TaskList todo={this.state.todo}></TaskList>
         </View>
     );
   }
