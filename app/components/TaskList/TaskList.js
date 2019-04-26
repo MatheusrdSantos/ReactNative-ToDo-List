@@ -1,12 +1,12 @@
 import React, {Component} from 'react';
 import {SectionList, Text, View, Button} from 'react-native';
-import styles from './styles'
+import styles from './styles';
+import Task from '../Task';
 
 export default class TaskList extends Component {
     constructor (props){
         super(props);
         this.state = {
-            todoData: ['create item styles', 'implement interaction with itens'],
             doneData: ['create section list']
         }
         console.log(this.props.todo)
@@ -20,7 +20,7 @@ export default class TaskList extends Component {
                         {title: 'ToDo', data: this.props.todo},
                         {title: 'Done', data: this.state.doneData},
                     ]}
-                    renderItem={({item}) => <Text style={styles.item}>{item}</Text>}
+                    renderItem={({item,index}) => <Task item={item} index={index} removeTask={this.props.removeTask}></Task>}
                     renderSectionHeader={({section}) => <Text style={styles.sectionHeader}>{section.title}</Text>}
                     keyExtractor={(item, index) => index}
                     />

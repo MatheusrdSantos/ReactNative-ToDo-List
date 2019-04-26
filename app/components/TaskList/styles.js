@@ -18,7 +18,6 @@ export default StyleSheet.create({
     },
     sectionHeader:{
         fontWeight: 'bold',
-        fontSize: 20
-        
+        fontSize: 20 
     }
 });

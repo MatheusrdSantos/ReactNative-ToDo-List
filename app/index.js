@@ -23,11 +23,21 @@ export default class App extends Component {
     this.setState({todo: this.state.todo})
     //alert(task)
   }
+  removeTask = (kind, index) => {
+    if(kind == 'doing'){
+      this.state.todo.splice(index, 1)
+      this.setState({todo: this.state.todo})
+    }else{
+      /* Apply the same logic for finished tasks */
+      /* this.state.todo.splice(index, 1)
+      this.setState({todo: this.state.todo}) */
+    }
+  }
   render() {
     return (
         <View style={styles.container}>
             <TaskCreator newTask={this.addTask}></TaskCreator>
-            <TaskList todo={this.state.todo}></TaskList>
+            <TaskList todo={this.state.todo} removeTask={this.removeTask}></TaskList>
         </View>
     );
   }
