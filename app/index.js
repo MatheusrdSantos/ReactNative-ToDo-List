@@ -7,6 +7,7 @@
  */
 
 import TaskCreator from './components/TaskCreator'
+import TaskList from './components/TaskList'
 import React, {Component} from 'react';
 import {StyleSheet, View} from 'react-native';
 export default class App extends Component {
@@ -14,6 +15,7 @@ export default class App extends Component {
     return (
         <View style={styles.container}>
             <TaskCreator></TaskCreator>
+            <TaskList></TaskList>
         </View>
     );
   }
