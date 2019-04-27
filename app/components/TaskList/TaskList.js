@@ -6,10 +6,7 @@ import Task from '../Task';
 export default class TaskList extends Component {
     constructor (props){
         super(props);
-        this.state = {
-            doneData: ['create section list']
-        }
-        console.log(this.props.todo)
+
     }
     render() {
         return (
@@ -18,9 +15,9 @@ export default class TaskList extends Component {
                     <SectionList
                     sections={[
                         {title: 'ToDo', data: this.props.todo},
-                        {title: 'Done', data: this.state.doneData},
+                        {title: 'Done', data: this.props.done},
                     ]}
-                    renderItem={({item,index}) => <Task item={item} index={index} removeTask={this.props.removeTask}></Task>}
+                    renderItem={({item,index, section}) => <Task item={item} section={section.title} index={index} updateList={this.props.updateList} removeTask={this.props.removeTask}></Task>}
                     renderSectionHeader={({section}) => <Text style={styles.sectionHeader}>{section.title}</Text>}
                     keyExtractor={(item, index) => index}
                     />

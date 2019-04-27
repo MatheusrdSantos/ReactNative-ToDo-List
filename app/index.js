@@ -15,13 +15,27 @@ export default class App extends Component {
   constructor(props){
     super(props);
     this.state = {
-      todo: []
+      todo: [],
+      done: []
     };
   }
   addTask = (task) => {
     this.state.todo.push(task)
     this.setState({todo: this.state.todo})
     //alert(task)
+  }
+  updateList = (newStatus, taskIndex) =>{
+    if(newStatus){
+      let taskDescription = this.state.todo.splice(taskIndex, 1);
+      this.setState({todo: this.state.todo});
+      this.state.done.push(taskDescription);
+      this.setState({done: this.state.done});
+    }else{
+      let taskDescription = this.state.done.splice(taskIndex, 1);
+      this.setState({done: this.state.done});
+      this.state.todo.push(taskDescription);
+      this.setState({todo: this.state.todo});
+    }
   }
   removeTask = (kind, index) => {
     if(kind == 'doing'){
@@ -37,7 +51,7 @@ export default class App extends Component {
     return (
         <View style={styles.container}>
             <TaskCreator newTask={this.addTask}></TaskCreator>
-            <TaskList todo={this.state.todo} removeTask={this.removeTask}></TaskList>
+            <TaskList todo={this.state.todo} done={this.state.done} updateList={this.updateList} removeTask={this.removeTask}></TaskList>
         </View>
     );
   }
