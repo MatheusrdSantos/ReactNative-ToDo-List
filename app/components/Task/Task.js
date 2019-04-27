@@ -13,11 +13,11 @@ export default class Task extends Component {
     return (
       <View style={styles.container}>
         <CheckBox value={this.state.done} onValueChange={()=>{
-            //this.setState({done: !this.state.done});
+            this.setState({done: !this.state.done});
             /* The first argument means the list where the task should be displayed */
             this.props.updateList(!this.state.done, this.props.index)
         }}></CheckBox>
-        <Text style={styles.description}>{this.props.item}</Text>
+        <Text style={[this.state.done?styles.textLineThrough:null, styles.description]}>{this.props.item}</Text>
         <Button onPress={
             () => {
                 this.props.removeTask(this.state.done, this.props.index)

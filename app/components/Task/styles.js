@@ -6,6 +6,9 @@ export default StyleSheet.create({
         flexDirection: 'row',
         marginBottom:10,
     },
+    textLineThrough:{
+        textDecorationLine: 'line-through'
+    },
     description:{
         flex:1,
     }
