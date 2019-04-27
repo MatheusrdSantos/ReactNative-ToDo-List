@@ -17,7 +17,7 @@ export default class Task extends Component {
             /* The first argument means the list where the task should be displayed */
             this.props.updateList(!this.state.done, this.props.index)
         }}></CheckBox>
-        <Text style={[this.state.done?styles.textLineThrough:null, styles.description]}>{this.props.item}</Text>
+        <Text style={[this.props.section=='ToDo'?null:styles.textLineThrough, styles.description]}>{this.props.item}</Text>
         <Button onPress={
             () => {
                 this.props.removeTask(this.state.done, this.props.index)
