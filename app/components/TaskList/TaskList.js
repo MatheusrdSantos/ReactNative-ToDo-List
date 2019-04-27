@@ -19,7 +19,7 @@ export default class TaskList extends Component {
                     ]}
                     renderItem={({item,index, section}) => <Task item={item} section={section.title} index={index} updateList={this.props.updateList} removeTask={this.props.removeTask}></Task>}
                     renderSectionHeader={({section}) => <Text style={styles.sectionHeader}>{section.title}</Text>}
-                    keyExtractor={(item, index) => index}
+                    keyExtractor={(item, index) => index+item}
                     />
                 </View>
             </View>

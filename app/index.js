@@ -26,7 +26,8 @@ export default class App extends Component {
   }
   updateList = (newStatus, taskIndex) =>{
     if(newStatus){
-      let taskDescription = this.state.todo.splice(taskIndex, 1);
+      let taskDescription = this.state.todo.splice(taskIndex, 1)[0];
+      console.log(taskDescription)
       this.setState({todo: this.state.todo});
       this.state.done.push(taskDescription);
       this.setState({done: this.state.done});
@@ -37,14 +38,13 @@ export default class App extends Component {
       this.setState({todo: this.state.todo});
     }
   }
-  removeTask = (kind, index) => {
-    if(kind == 'doing'){
+  removeTask = (done, index) => {
+    if(!done){
       this.state.todo.splice(index, 1)
       this.setState({todo: this.state.todo})
     }else{
-      /* Apply the same logic for finished tasks */
-      /* this.state.todo.splice(index, 1)
-      this.setState({todo: this.state.todo}) */
+      this.state.done.splice(index, 1)
+      this.setState({done: this.state.done})
     }
   }
   render() {
