@@ -1,5 +1,5 @@
-import INITIAL_STATE from '../actions/index';
-import TASK_ACTIONS from '../actions/index';
+import {INITIAL_STATE} from '../actions/index';
+import {TASK_ACTIONS} from '../actions/index';
 const taskReducer = (state = INITIAL_STATE.tasks, action) => {
     switch (action.type) {
       case TASK_ACTIONS.NEW_TASK:

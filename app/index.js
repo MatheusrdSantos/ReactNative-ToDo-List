@@ -10,7 +10,11 @@ import TaskCreator from './components/TaskCreator'
 import TaskList from './components/TaskList'
 import React, {Component} from 'react';
 import {StyleSheet, View} from 'react-native';
+import {Provider} from 'react-redux';
+import {createStore} from 'redux';
+import combineReducer from './reducers';
 
+const store = createStore(combineReducer);
 export default class App extends Component {
   constructor(props){
     super(props);
@@ -49,10 +53,12 @@ export default class App extends Component {
   }
   render() {
     return (
-        <View style={styles.container}>
-            <TaskCreator newTask={this.addTask}></TaskCreator>
-            <TaskList todo={this.state.todo} done={this.state.done} updateList={this.updateList} removeTask={this.removeTask}></TaskList>
-        </View>
+        <Provider store={store}>
+          <View style={styles.container}>
+              <TaskCreator newTask={this.addTask}></TaskCreator>
+              <TaskList todo={this.state.todo} done={this.state.done} updateList={this.updateList} removeTask={this.removeTask}></TaskList>
+          </View>
+        </Provider>
     );
   }
 }
