@@ -3,17 +3,29 @@ import {TASK_ACTIONS} from '../actions/index';
 const taskReducer = (state = INITIAL_STATE.tasks, action) => {
     switch (action.type) {
       case TASK_ACTIONS.NEW_TASK:
-        return [...state, {description: action.description, done: false}];
+        //console.log(state)
+        return { todo: [...state.todo, {description: action.description, done: false}], done: [...state.done]};
       case TASK_ACTIONS.TOGGLE_STATUS:
-        return state.map((task, index) => {
-          if (index === action.index) {
-            return Object.assign({}, task, {
-              done: !task.done
-            })
-          }
-          return task
-        })
+        console.log("toggle:", state)
+        if(action.payload.newStatus){
+          let new_todo = state.todo.slice();
+          let task = new_todo.splice(action.payload.index, 1)[0];
+          task.done = action.payload.newStatus;
+          console.log(task)
+          let new_done = state.done.slice();
+          new_done.push(task)
+          return {todo:new_todo, done: new_done};
+        }else{
+          let new_done = state.done.slice();
+          let task = new_done.splice(action.payload.index, 1)[0];
+          task.done = action.payload.newStatus;
+          console.log(task)
+          let new_todo = state.todo.slice();
+          new_todo.push(task)
+          return {todo:new_todo, done: new_done};
+        }
       default:
+        //console.log(state)
         return state;
     }
 };

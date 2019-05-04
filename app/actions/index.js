@@ -15,25 +15,39 @@ export const FILTER_ACTIONS = {
 
 export const INITIAL_STATE = {
     filter: FILTERS.ALL,
-    tasks: [
-        {
-            description: 'first task',
-            done: false
-        },
-        {
-            description: 'seconde task',
-            done: false
-        },
-
-    ],
+    tasks: {
+        todo:[
+            {
+                description: 'first task',
+                done: false
+            },
+            {
+                description: 'seconde task',
+                done: false
+            },
+    
+        ],
+        done:
+        [
+            {
+                description: 'use actions',
+                done: true
+            },
+            {
+                description: 'use redux',
+                done: true
+            },
+    
+        ] 
+    }
 };
 
 export function newTask(description){
     return {type: TASK_ACTIONS.NEW_TASK, description};
 }
 
-export function toggleTask(index){
-    return {type: TASK_ACTIONS.TOGGLE_STATUS, index};
+export function toggleTask(index, newStatus){
+    return {type: TASK_ACTIONS.TOGGLE_STATUS, payload: {index, newStatus}};
 }
 
 export function changeFilter(filter){
