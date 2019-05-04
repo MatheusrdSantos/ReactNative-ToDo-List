@@ -18,45 +18,13 @@ const store = createStore(combineReducer);
 export default class App extends Component {
   constructor(props){
     super(props);
-    this.state = {
-      todo: [],
-      done: []
-    };
-  }
-  addTask = (task) => {
-    this.state.todo.push(task)
-    this.setState({todo: this.state.todo})
-    //alert(task)
-  }
-  updateList = (newStatus, taskIndex) =>{
-    if(newStatus){
-      let taskDescription = this.state.todo.splice(taskIndex, 1)[0];
-      console.log(taskDescription)
-      this.setState({todo: this.state.todo});
-      this.state.done.push(taskDescription);
-      this.setState({done: this.state.done});
-    }else{
-      let taskDescription = this.state.done.splice(taskIndex, 1);
-      this.setState({done: this.state.done});
-      this.state.todo.push(taskDescription);
-      this.setState({todo: this.state.todo});
-    }
-  }
-  removeTask = (done, index) => {
-    if(!done){
-      this.state.todo.splice(index, 1)
-      this.setState({todo: this.state.todo})
-    }else{
-      this.state.done.splice(index, 1)
-      this.setState({done: this.state.done})
-    }
   }
   render() {
     return (
         <Provider store={store}>
           <View style={styles.container}>
-              <TaskCreator newTask={this.addTask}></TaskCreator>
-              <TaskList todo={this.state.todo} done={this.state.done} updateList={this.updateList} removeTask={this.removeTask}></TaskList>
+              <TaskCreator></TaskCreator>
+              <TaskList></TaskList>
           </View>
         </Provider>
     );
