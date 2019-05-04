@@ -10,7 +10,7 @@ import TaskCreator from './components/TaskCreator'
 import TaskList from './components/TaskList'
 import React, {Component} from 'react';
 import {StyleSheet, View} from 'react-native';
-import {Provider} from 'react-redux';
+import {Provider, connect} from 'react-redux';
 import {createStore} from 'redux';
 import combineReducer from './reducers';
 

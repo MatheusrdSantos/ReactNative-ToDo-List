@@ -17,9 +17,14 @@ export const INITIAL_STATE = {
     filter: FILTERS.ALL,
     tasks: [
         {
-            descrption: 'first task',
+            description: 'first task',
             done: false
-        }
+        },
+        {
+            description: 'seconde task',
+            done: false
+        },
+
     ],
 };
 

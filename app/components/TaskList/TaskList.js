@@ -2,20 +2,24 @@ import React, {Component} from 'react';
 import {SectionList, Text, View, Button} from 'react-native';
 import styles from './styles';
 import Task from '../Task';
+import { connect } from 'react-redux';
 
-export default class TaskList extends Component {
+class TaskList extends Component {
     constructor (props){
         super(props);
 
+        console.log(this.props.tasks);
     }
+    
+    
     render() {
         return (
             <View style={styles.container}>
                 <View style={styles.container}>
                     <SectionList
                     sections={[
-                        {title: 'ToDo', data: this.props.todo},
-                        {title: 'Done', data: this.props.done},
+                        {title: 'ToDo', data: this.props.tasks},
+                        {title: 'Done', data: this.props.tasks},
                     ]}
                     
                     renderItem={({item,index, section}) => <Task item={item} section={section.title} index={index} updateList={this.props.updateList} removeTask={this.props.removeTask}></Task>}
@@ -29,3 +33,16 @@ export default class TaskList extends Component {
         );
     }
 }
+
+const mapStateToProps = state => {
+    return {
+      tasks: state.taskReducer
+    }
+  }
+  
+const mapDispatchToProps = dispatch => {
+    return {
+    }
+}
+  
+export default connect(mapStateToProps, mapDispatchToProps)(TaskList);
