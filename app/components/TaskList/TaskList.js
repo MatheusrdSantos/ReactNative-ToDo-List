@@ -7,11 +7,7 @@ import { connect } from 'react-redux';
 class TaskList extends Component {
     constructor (props){
         super(props);
-
-        console.log(this.props.tasks);
     }
-    
-    
     render() {
         return (
             <View style={styles.container}>
@@ -36,7 +32,7 @@ class TaskList extends Component {
 
 const mapStateToProps = state => {
     return {
-      tasks: state.taskReducer
+      tasks: state.tasks
     }
   }
   
