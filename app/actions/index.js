@@ -6,7 +6,8 @@ export const FILTERS = {
 
 export const TASK_ACTIONS = {
     NEW_TASK: 'NEW_TASK',
-    TOGGLE_STATUS: 'TOGGLE_STATUS'
+    TOGGLE_STATUS: 'TOGGLE_STATUS',
+    DELETE_TASK: 'DELETE_TASK'
 }
 
 export const FILTER_ACTIONS = {
@@ -49,7 +50,9 @@ export function newTask(description){
 export function toggleTask(index, newStatus){
     return {type: TASK_ACTIONS.TOGGLE_STATUS, payload: {index, newStatus}};
 }
-
+export function deleteTask(index, taskStatus){
+    return {type: TASK_ACTIONS.DELETE_TASK, payload:{index, taskStatus}};
+}
 export function changeFilter(filter){
     return {type: FILTER_ACTIONS.CHANGE_FILTER, filter};
 }
