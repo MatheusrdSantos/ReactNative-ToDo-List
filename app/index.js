@@ -8,6 +8,7 @@
 
 import TaskCreator from './components/TaskCreator'
 import TaskList from './components/TaskList'
+import TaskFilter from './components/TaskFilter';
 import React, {Component} from 'react';
 import {StyleSheet, View} from 'react-native';
 import {Provider, connect} from 'react-redux';
@@ -15,7 +16,8 @@ import {createStore} from 'redux';
 import combineReducer from './reducers';
 
 const store = createStore(combineReducer);
-export default class App extends Component {
+
+class App extends Component {
   constructor(props){
     super(props);
   }
@@ -25,6 +27,7 @@ export default class App extends Component {
           <View style={styles.container}>
               <TaskCreator></TaskCreator>
               <TaskList></TaskList>
+              <TaskFilter></TaskFilter>
           </View>
         </Provider>
     );
@@ -38,3 +41,17 @@ const styles = StyleSheet.create({
         backgroundColor: 'blue',
     },
 });
+
+const mapStateToProps = state => {
+  return {
+    
+  }
+}
+
+const mapDispatchToProps = dispatch => {
+  return {
+    
+  }
+}
+
+export default App
