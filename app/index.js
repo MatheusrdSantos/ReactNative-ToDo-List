@@ -6,12 +6,9 @@
  * @flow
  */
 
-import TaskCreator from './components/TaskCreator'
-import TaskList from './components/TaskList'
-import TaskFilter from './components/TaskFilter';
+import AppContainer from './components/AppContainer'
 import React, {Component} from 'react';
-import {StyleSheet, View} from 'react-native';
-import {Provider, connect} from 'react-redux';
+import {Provider} from 'react-redux';
 import {createStore} from 'redux';
 import combineReducer from './reducers';
 
@@ -24,33 +21,9 @@ class App extends Component {
   render() {
     return (
         <Provider store={store}>
-          <View style={styles.container}>
-              <TaskCreator></TaskCreator>
-              <TaskList></TaskList>
-              <TaskFilter></TaskFilter>
-          </View>
+          <AppContainer></AppContainer>
         </Provider>
     );
-  }
-}
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        justifyContent: 'flex-start',
-        alignItems: 'stretch',
-        backgroundColor: 'blue',
-    },
-});
-
-const mapStateToProps = state => {
-  return {
-    
-  }
-}
-
-const mapDispatchToProps = dispatch => {
-  return {
-    
   }
 }
 

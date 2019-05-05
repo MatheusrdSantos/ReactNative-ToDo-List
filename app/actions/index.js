@@ -54,5 +54,5 @@ export function deleteTask(index, taskStatus){
     return {type: TASK_ACTIONS.DELETE_TASK, payload:{index, taskStatus}};
 }
 export function changeFilter(filter){
-    return {type: FILTER_ACTIONS.CHANGE_FILTER, filter};
+    return {type: FILTER_ACTIONS.CHANGE_FILTER, payload: {filter}};
 }

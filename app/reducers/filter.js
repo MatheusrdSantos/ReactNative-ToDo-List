@@ -3,7 +3,7 @@ import {FILTER_ACTIONS} from '../actions/index'
 const filterReducer = (state = INITIAL_STATE.filter, action) =>{
     switch (action.type) {
         case FILTER_ACTIONS.CHANGE_FILTER:
-            return action.filter;
+            return action.payload.filter;
         default:
             return state;
     }
