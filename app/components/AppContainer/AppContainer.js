@@ -4,6 +4,7 @@ import TaskCreator from '../TaskCreator';
 import TaskList from '../TaskList';
 import TaskFilter from '../TaskFilter';
 import TaskListDone from '../TaskListDone';
+import TaskListTodo from '../TaskListTodo';
 import styles from './styles';
 import {connect} from 'react-redux';
 import {FILTERS} from '../../actions';
@@ -13,18 +14,9 @@ class AppContainer extends Component{
         if(this.props.filter == FILTERS.ALL){
             return (<TaskList></TaskList>);
         }else if(this.props.filter == FILTERS.COMPLETED){
-            return (
-                <View style={styles.emptyContainer}>
-                    {/* <Text>{this.props.filter}</Text> */}
-                    <TaskListDone></TaskListDone>
-                </View>
-            );
+            return (<TaskListDone></TaskListDone>);
         }else if(this.props.filter == FILTERS.INCOMPLETE){
-            return (
-                <View style={styles.emptyContainer}>
-                    <Text>{this.props.filter}</Text>
-                </View>
-            );
+            return (<TaskListTodo></TaskListTodo>);
         }
     }
     render(){

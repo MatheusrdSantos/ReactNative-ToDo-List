@@ -1,12 +1,8 @@
-import { StyleSheet } from 'react-native';
+import {StyleSheet} from 'react-native';
 
-/* styles for taskList */
+/* styles for TaskListTodo */
 
 export default StyleSheet.create({
-    textInput: {
-        color: 'white',
-        width: '70%'
-    },
     container: {
         flex:1,
         paddingTop: 20,
