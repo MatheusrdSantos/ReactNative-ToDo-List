@@ -3,6 +3,7 @@ import {View, Text} from 'react-native'
 import TaskCreator from '../TaskCreator';
 import TaskList from '../TaskList';
 import TaskFilter from '../TaskFilter';
+import TaskListDone from '../TaskListDone';
 import styles from './styles';
 import {connect} from 'react-redux';
 import {FILTERS} from '../../actions';
@@ -14,7 +15,8 @@ class AppContainer extends Component{
         }else if(this.props.filter == FILTERS.COMPLETED){
             return (
                 <View style={styles.emptyContainer}>
-                    <Text>{this.props.filter}</Text>
+                    {/* <Text>{this.props.filter}</Text> */}
+                    <TaskListDone></TaskListDone>
                 </View>
             );
         }else if(this.props.filter == FILTERS.INCOMPLETE){
