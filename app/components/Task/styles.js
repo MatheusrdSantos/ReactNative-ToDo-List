@@ -20,7 +20,8 @@ export default StyleSheet.create({
         padding: 5
     },
     checkbox:{
-        alignSelf: 'center'
+        alignSelf: 'center',
+        marginRight: 15
     },
     delIcon:{
         alignSelf: 'center',
