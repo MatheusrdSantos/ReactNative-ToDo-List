@@ -10,22 +10,18 @@ class TaskList extends Component {
     }
     render() {
         return (
-            <View style={styles.container}>
-                <View style={styles.container}>
-                    <SectionList
-                    sections={[
-                        {title: 'ToDo', data: this.props.tasks.todo},
-                        {title: 'Done', data: this.props.tasks.done},
-                    ]}
-                    
-                    renderItem={({item,index, section}) => <Task item={item} section={section.title} index={index} updateList={this.props.updateList} removeTask={this.props.removeTask}></Task>}
+            <SectionList
+            sections={[
+                {title: 'ToDo', data: this.props.tasks.todo},
+                {title: 'Done', data: this.props.tasks.done},
+            ]}
+            
+            renderItem={({item,index, section}) => <Task item={item} section={section.title} index={index} updateList={this.props.updateList} removeTask={this.props.removeTask}></Task>}
 
-                    renderSectionHeader={({section}) => <Text style={styles.sectionHeader}>{section.title}</Text>}
-                    
-                    keyExtractor={(item, index) => index+item.description}
-                    />
-                </View>
-            </View>
+            renderSectionHeader={({section}) => <Text style={styles.sectionHeader}>{section.title}</Text>}
+            
+            keyExtractor={(item, index) => index+item.description}
+            />
         );
     }
 }

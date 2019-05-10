@@ -24,7 +24,9 @@ class AppContainer extends Component{
         return (
             <View style={styles.container}>
                 <TaskCreator></TaskCreator>
-                {this.displayFilter()}
+                <View style={styles.listContainer}>
+                    {this.displayFilter()}
+                </View>
                 <TaskFilter></TaskFilter>
             </View>
         );
