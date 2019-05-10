@@ -16,7 +16,7 @@ class Task extends Component {
           <CheckBox style={styles.checkbox} value={this.props.item.done} onValueChange={()=>{this.props.toggleTask(this.props.index,!this.props.item.done)}}></CheckBox>
           <Text style={styles.description}>{this.props.item.description}</Text>
           {/* <Button light style={styles.button}> */}
-            <Icon style={styles.delIcon} onPress={()=>{this.props.deleteTask(this.props.index, this.props.item.done)}} name="trash"/>
+            <Icon type="MaterialIcons" style={styles.delIcon} onPress={()=>{this.props.deleteTask(this.props.index, this.props.item.done)}} name="clear"/>
           {/* </Button> */}
         </Card>
       </View>

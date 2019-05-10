@@ -3,7 +3,10 @@ import { StyleSheet } from 'react-native';
 export default StyleSheet.create({
     textInput: {
         color: 'black',
-        width: '70%'
+        flex:1,
+        marginRight: 5,
+
+        padding:0
     },
     container: {
         paddingTop: 20,
@@ -12,7 +15,7 @@ export default StyleSheet.create({
         paddingRight: 10,
         flexDirection: 'row',
         justifyContent: 'space-around',
-        alignItems: 'center',
+        alignItems: 'flex-start',
         backgroundColor: '#ffffff',
     }
 });

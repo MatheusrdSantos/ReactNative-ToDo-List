@@ -1,29 +1,34 @@
 import React, {Component} from 'react';
-import {View, Button} from 'react-native';
+import {View} from 'react-native';
 import styles from './styles';
 import {connect} from 'react-redux';
 import {changeFilter} from '../../actions';
 import {FILTERS} from '../../actions';
+import {Footer, FooterTab, Button, Text} from 'native-base';
 
 class TaskFilter extends Component{
     render(){
         return (
             <View style={styles.container}>
-                <View style={styles.item}>
-                    <Button title="all" onPress={()=>{
-                        this.props.changeFilter(FILTERS.ALL)
-                    }}></Button>
-                </View>
-                <View style={styles.item}>
-                    <Button title="todo" onPress={()=>{
+                <Footer>
+                    <FooterTab>
+                        <Button active={this.props.filter==FILTERS.ALL} onPress={()=>{
+                            this.props.changeFilter(FILTERS.ALL)
+                        }}>
+                        <Text>All</Text>
+                        </Button>
+                        <Button active={this.props.filter==FILTERS.INCOMPLETE} onPress={()=>{
                         this.props.changeFilter(FILTERS.INCOMPLETE)
-                    }}></Button>
-                </View>
-                <View style={styles.item}>
-                    <Button title="done" onPress={()=>{
+                        }}>
+                        <Text>Todo</Text>
+                        </Button>
+                        <Button active={this.props.filter==FILTERS.COMPLETED} onPress={()=>{
                         this.props.changeFilter(FILTERS.COMPLETED)
-                    }}></Button>
-                </View>
+                        }}>
+                        <Text>Done</Text>
+                        </Button>
+                    </FooterTab>
+                </Footer>
             </View>
         );
     }
@@ -31,7 +36,7 @@ class TaskFilter extends Component{
 
 const mapStateToProps = state => {
     return {
-        
+        filter: state.filter
     }
 }
   

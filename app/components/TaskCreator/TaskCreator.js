@@ -1,8 +1,9 @@
 import React, {Component} from 'react';
-import {TextInput, StyleSheet, Text, View, Button, Alert} from 'react-native';
+import {StyleSheet, View, Alert} from 'react-native';
 import styles from './styles';
 import { connect } from 'react-redux';
 import {newTask} from '../../actions';
+import {Button, Text, Label, Input, Form, Item} from 'native-base';
 class TaskCreator extends Component {
   constructor(props){
     super(props);
@@ -16,14 +17,18 @@ class TaskCreator extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <TextInput ref={input => this._text = input} value={this.state.taskDescription} onChangeText={(text)=> this.setState({taskDescription:text})} style={styles.textInput} placeholder="Type here a task"></TextInput>
-        <Button
+        <Form style={styles.textInput}>
+          <Item>
+            <Input placeholder="Description" value={this.state.taskDescription} onChangeText={(text)=> this.setState({taskDescription:text})}/>
+          </Item>
+        </Form>
+        {/* <TextInput ref={input => this._text = input} value={this.state.taskDescription} onChangeText={(text)=> this.setState({taskDescription:text})} style={styles.textInput} placeholder="Type here a task"></TextInput> */}
+        <Button active
         onPress={()=>{
           this.clearTextField()
           this.props.addTask(this.state.taskDescription)
         }}
-        title="add"
-        />
+        ><Text>Add</Text></Button>
       </View>
     );
   }
