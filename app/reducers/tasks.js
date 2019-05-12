@@ -35,7 +35,7 @@ const taskReducer = (state = INITIAL_STATE.tasks, action) => {
           return {...state, todo:new_todo};
         }
       default:
-        //console.log(state)
+        console.log(state)
         return state;
     }
 };

@@ -8,20 +8,23 @@
 
 import AppContainer from './components/AppContainer'
 import React, {Component} from 'react';
+import {Text} from 'react-native';
 import {Provider} from 'react-redux';
-import {createStore} from 'redux';
-import combineReducer from './reducers';
-
-const store = createStore(combineReducer);
-
+import {store, persistor} from './reducers';
+import {PersistGate} from 'redux-persist/integration/react'
 class App extends Component {
   constructor(props){
     super(props);
   }
+  loading = ()=>{
+    return (<Text>Loading</Text>);
+  }
   render() {
     return (
         <Provider store={store}>
-          <AppContainer></AppContainer>
+         <PersistGate persistor={persistor} loading={this.loading()}>
+            <AppContainer></AppContainer>
+          </PersistGate>
         </Provider>
     );
   }

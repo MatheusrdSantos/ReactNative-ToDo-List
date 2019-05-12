@@ -5,6 +5,7 @@ const filterReducer = (state = INITIAL_STATE.filter, action) =>{
         case FILTER_ACTIONS.CHANGE_FILTER:
             return action.payload.filter;
         default:
+            console.log(state)
             return state;
     }
 }
