@@ -8,7 +8,8 @@
 
 import AppContainer from './components/AppContainer'
 import React, {Component} from 'react';
-import {Text} from 'react-native';
+import {View, Text, StyleSheet} from 'react-native';
+import {Spinner} from 'native-base';
 import {Provider} from 'react-redux';
 import {store, persistor} from './reducers';
 import {PersistGate} from 'redux-persist/integration/react'
@@ -17,7 +18,12 @@ class App extends Component {
     super(props);
   }
   loading = ()=>{
-    return (<Text>Loading</Text>);
+    return (
+      <View style={styles.leadingContainer}>
+        <Spinner color='blue'></Spinner>
+        <Text>Loading</Text>
+      </View>
+    );
   }
   render() {
     return (
@@ -29,5 +35,13 @@ class App extends Component {
     );
   }
 }
+
+const styles = StyleSheet.create({
+  leadingContainer:{
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center'
+  }
+});
 
 export default App
