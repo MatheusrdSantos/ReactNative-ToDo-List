@@ -21,7 +21,8 @@ export default StyleSheet.create({
     },
     checkbox:{
         alignSelf: 'center',
-        marginRight: 15
+        marginRight: 15,
+        borderRadius: 5
     },
     delIcon:{
         alignSelf: 'center',
